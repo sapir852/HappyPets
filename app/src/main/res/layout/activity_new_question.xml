@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.activity.Activity_New_Question">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/logMain_IMG_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:background="#FFFFFF"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_background_log0" />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/questionNew_IMG_title"
+        android:text="ADD QUESTION"
+        android:fontFamily="@font/font_titel"
+        android:textColor="#D88787"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="60dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="100dp">
+
+    <EditText
+        android:id="@+id/questionNew_EDXT_Titel"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="10dp"
+        app:errorEnabled="false"
+        android:hint="Titel :"
+        android:minLines="2"
+        android:maxLines="2"
+        android:inputType="textPersonName"
+        android:fontFamily="@font/font_text"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textColorHint="#99000000" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/questionNew_TI_category"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:outlineAmbientShadowColor="@color/black"
+            android:outlineSpotShadowColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="18sp"
+            app:boxBackgroundColor="#ECE8E8"
+            app:hintTextColor="@color/black"
+
+            app:startIconTint="@color/black">
+        <AutoCompleteTextView
+            android:id="@+id/questionNew_AutoTextViewCat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/font_text"
+            android:inputType="none"
+            android:backgroundTint="#1F000000"
+            android:text="Category"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:startIconTint="@color/black"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <EditText
+            android:id="@+id/questionNew_EDXT_Text"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="10dp"
+            app:errorEnabled="false"
+            android:hint="Text :"
+            android:minLines="2"
+            android:maxLines="20"
+            android:inputType="textPersonName"
+            android:fontFamily="@font/font_text"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textColorHint="#99000000" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/questionNew_BTN_finish"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="125dp"
+            android:text="finish"
+
+            android:fontFamily="@font/font_text"
+            android:backgroundTint = "#D88787"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginTop="250dp"
+            >
+
+        </com.google.android.material.button.MaterialButton>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/questionNew_BTN_Back"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="125dp"
+            android:text="back"
+
+            android:fontFamily="@font/font_text"
+            android:backgroundTint = "#D88787"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginTop="15dp"
+            >
+
+        </com.google.android.material.button.MaterialButton>
+</LinearLayout>
+
+
+</RelativeLayout>

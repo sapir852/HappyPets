@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "939922045230",
+    "firebase_url": "https://happypets-fd8b0-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "happypets-fd8b0",
+    "storage_bucket": "happypets-fd8b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939922045230:android:8e985fa402a7d37b6662bf",
+        "android_client_info": {
+          "package_name": "com.sapirgolan.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939922045230-uv6b8tnholkjfe77o11omp9mq1tstgsi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRgUJPnOuhp4WtXPI5vWcFDkDiimEJk2w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939922045230-uv6b8tnholkjfe77o11omp9mq1tstgsi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

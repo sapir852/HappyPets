@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.activity.Activity_login_Main">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/logMain_IMG_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:background="#FFFFFF"
+        />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/logMain_IMG_Logo"
+        android:text="HappyPets"
+        android:fontFamily="@font/font_titel"
+        android:textColor="#D88787"
+        android:textSize="35dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+       android:layout_marginTop="30dp"
+        android:layout_marginStart="60dp"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/logMain_IMG_Logo"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:layout_marginTop="100dp"
+
+        >
+     <com.google.android.material.button.MaterialButton
+         android:id="@+id/logMain_BTN_Login"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="login"
+         android:fontFamily="@font/font_text"
+         android:backgroundTint = "#D88787"
+         android:textStyle="bold"
+         android:textSize="20dp"
+         android:layout_marginTop="50dp"
+>
+
+     </com.google.android.material.button.MaterialButton>
+        <View
+            android:layout_width="150dp"
+            android:layout_height="40dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/logMain_BTN_signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="signUp"
+            android:fontFamily="@font/font_text"
+            android:backgroundTint = "#D88787"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            >
+
+        </com.google.android.material.button.MaterialButton>
+
+    </LinearLayout>
+
+</RelativeLayout>
