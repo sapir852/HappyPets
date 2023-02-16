@@ -13,6 +13,7 @@
         android:scaleType="centerCrop"
         android:background="#B0E39FDB"
         />
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,5 +36,16 @@
         >
 
     </com.google.android.material.button.MaterialButton>
+
+
+    <FrameLayout
+        android:id="@+id/menu_LAY_fragmant"
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="900dp"
+        android:padding="32dp"
+
+
+        />
 
 </RelativeLayout>
