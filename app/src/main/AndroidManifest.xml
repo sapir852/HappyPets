@@ -17,6 +17,13 @@
         android:theme="@style/Theme.HappyPets"
         tools:targetApi="31">
         <activity
+            android:name=".Fragment.kind_pets"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".activity.activity.Activity_New_Question"
             android:exported="false">
             <meta-data

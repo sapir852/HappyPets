@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.activity.Activity_login_Main">
+    tools:context=".activity.activity.Activity_login_Main"
+    android:keepScreenOn="true">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/logMain_IMG_background"
