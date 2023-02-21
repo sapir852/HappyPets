@@ -20,13 +20,11 @@ New icon for the app
 Splash animation
 Lottie animation
 
-Login
-Splash Screen	Login Screen 1	Login Screen 2	Log Out Screen
-animated	animated	animated	animated
-
-Sign Up
-
-
-Question:
+screen:
+ *Login
+ *Sign Up
+ *Menu
+ *Question
+ *Answer
 
 
