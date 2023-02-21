@@ -80,9 +80,8 @@ public class Fragment_Question extends Fragment {
 
         FirebaseDatabase database=FirebaseDatabase.getInstance("https://happypets-fd8b0-default-rtdb.europe-west1.firebasedatabase.app/");
 
-        DatabaseReference myRef=database.getReference("question").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("category").child("cat");
-//        for (int i = 0; i < dataManager.getKindName().size(); i++) {
-//            DatabaseReference categoryRef = myRef.child(dataManager.getKindName().get(i));
+        DatabaseReference myRef=database.getReference("question");
+
         myRef.addValueEventListener(new ValueEventListener() {
 
             @Override

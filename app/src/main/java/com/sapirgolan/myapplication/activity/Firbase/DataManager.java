@@ -150,7 +150,7 @@ public class DataManager {
         }
     }
     public void addNewQuestion(Question question) {
-        DatabaseReference myRef = firebaseDatabase.getReference("question").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("category").child(question.getCategory()).child(question.getIdQ());
+        DatabaseReference myRef = firebaseDatabase.getReference("question").child(question.getIdQ());
 //                getReference("category").child(FirebaseAuth.getInstance().
 //                        getCurrentUser().getUid()).
 //                child(question.getCategory()).child(question.getIdQ());
