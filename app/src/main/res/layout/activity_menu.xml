@@ -21,21 +21,46 @@
         android:scaleType="fitXY"
         android:src="@drawable/ic_background_log0" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/menu_BTN_backQ"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="backe"
+
+            android:fontFamily="@font/font_text"
+            android:backgroundTint = "#D88787"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginTop="15dp"
+            >
+
+        </com.google.android.material.button.MaterialButton>
+
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/menu_BTN_addQ"
-        android:layout_width="150dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="125dp"
-        android:text="+"
+        android:layout_marginStart="220dp"
+        android:text="Add question"
 
         android:fontFamily="@font/font_text"
         android:backgroundTint = "#D88787"
         android:textStyle="bold"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_marginTop="15dp"
         >
 
     </com.google.android.material.button.MaterialButton>
+
+    </RelativeLayout>
+
 
 
     <FrameLayout

@@ -27,9 +27,10 @@ public class AdapterKindPets extends RecyclerView.Adapter<AdapterKindPets.saveHo
 
 
 
-    public AdapterKindPets( Context context, ArrayList<KindPets> kindPets){
+    public AdapterKindPets( Context context, ArrayList<KindPets> kindPets,CallBackList callBackList){
         this.kindPets = kindPets;
         this.context = context;
+        this.callBackList=callBackList;
     }
     @Override
     public int getItemCount()  {
@@ -39,17 +40,15 @@ public class AdapterKindPets extends RecyclerView.Adapter<AdapterKindPets.saveHo
     @Override
     public saveHolder  onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_kind_pets, parent, false);
-        saveHolder kindpetsHolder =new  saveHolder(view);
-        return kindpetsHolder;
+        saveHolder saveHolder =new  saveHolder(view);
+        return saveHolder;
     }
     @Override
     public void onBindViewHolder(final saveHolder holder, int position) {
 
         KindPets kindPet =kindPets.get(position);
 
-
-        holder.list_LBL_title.setText(kindPet.getTitle());
-
+        holder.list_LBL_title.setText(kindPet.getName());
 
         Glide
                 .with(context)
@@ -72,9 +71,9 @@ public class AdapterKindPets extends RecyclerView.Adapter<AdapterKindPets.saveHo
                 @Override
                 public void onClick(View view) {
                     if (callBackList!= null) {;
-                        dataManager.setKindName(kindPets.get(getAdapterPosition()).getTitle());
-                        filteredKindArr(dataManager.getKindName());
-                        dataManager.filteredKindArr(questions);
+                        DataManager dataManager = AdapterKindPets.this.dataManager.setKindName(kindPets.get(getAdapterPosition()).getName());
+                        KindArr(AdapterKindPets.this.dataManager.getKindPet_Title());
+                        AdapterKindPets.this.dataManager.filteredKindArr(questions);
                         callBackList.onClicked();
 
                     }
@@ -85,7 +84,7 @@ public class AdapterKindPets extends RecyclerView.Adapter<AdapterKindPets.saveHo
 
     }
 
-    public void filteredKindArr(String currentCategoryName){
+    public void KindArr(String currentCategoryName){
         questions = new ArrayList<>();
         for(int i=0; i<dataManager.getQuestions().size(); i++) {
             if(dataManager.getQuestions().get(i).getCategory().equals(currentCategoryName)){

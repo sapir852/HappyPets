@@ -4,24 +4,31 @@ import java.util.ArrayList;
 
 public class Question {
     private String category;
-    private String name;
+    private String idQ;
     private String title="";
     private String  text="";
-    private String imagePet;
-    private ArrayList<Question> questions;
+   // private String imagePet;
+    private ArrayList<Answer> answers;
 
 
     public Question() {}
 
-    public Question(String category, String name, String title, String text, String imagePet) {
+    public Question(String category, String idQ, String title, String text) {
         this.category = category;
-        this.name = name;
+        this.idQ=idQ;
         this.title = title;
         this.text = text;
-        this.imagePet = imagePet;
-        this.questions = new ArrayList<>();
+      //  this.imagePet = imagePet;
+        this.answers = new ArrayList<>();
     }
 
+    public String getIdQ() {
+        return idQ;
+    }
+
+    public void setIdQ(String idQ) {
+        this.idQ = idQ;
+    }
     public String getCategory() {
         return category;
     }
@@ -30,25 +37,17 @@ public class Question {
         this.category = category;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getTitle() {
         return title;
     }
 
 
-    public ArrayList<Question> getQuestions() {
-        return questions;
+    public ArrayList<Answer> getAnswers() {
+        return answers;
     }
 
-    public void setQuestions(ArrayList<Question> questions) {
-        this.questions = questions;
+    public void setAnswers(ArrayList<Answer> answers) {
+        this.answers = answers;
     }
 
     public void setTitle(String title) {
@@ -63,22 +62,15 @@ public class Question {
         this.text = text;
     }
 
-    public String getImagePet() {
-        return imagePet;
-    }
+//    public String getImagePet() {
+//        return imagePet;
+//    }
+//
+//    public void setImagePet(String imagePet) {
+//        this.imagePet = imagePet;
+//    }
 
-    public void setImagePet(String imagePet) {
-        this.imagePet = imagePet;
-    }
 
-    @Override
-    public String toString() {
-        return "Question{" +
-                "title='" + title + '\'' +
-                ", text='" + text + '\'' +
-                ", imagePet='" + imagePet + '\'' +
-                '}';
-    }
 
 
 }

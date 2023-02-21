@@ -3,16 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.Fragment_kind_pets"
-
-  >
+    tools:context=".Fragment.Fragment_Question"
+    >
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/kindPets_LST_recyclerView"
+        android:id="@+id/question_LST_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
-
+        android:layout_margin="6dp"
         />
-
 </FrameLayout>
+
