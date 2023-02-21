@@ -47,11 +47,9 @@ public class AdapterQuestion extends RecyclerView.Adapter<AdapterQuestion.saveHo
     @Override
     public void onBindViewHolder(final AdapterQuestion.saveHolder holder, int position) {
 
-       final AdapterQuestion.saveHolder holderr = (AdapterQuestion.saveHolder) holder;
-
         Question question =questions.get(position);
 
-        holderr.question_LBL_title.setText(question.getTitle());
+        holder.question_LBL_title.setText(question.getTitle());
         holder.question_LBL_text.setText(question.getText());
 
 
@@ -82,9 +80,7 @@ public class AdapterQuestion extends RecyclerView.Adapter<AdapterQuestion.saveHo
                 }
             });
 
-        }
-
-    }
+        }}
 
 
 

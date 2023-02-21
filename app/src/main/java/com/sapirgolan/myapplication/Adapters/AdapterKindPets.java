@@ -72,9 +72,13 @@ public class AdapterKindPets extends RecyclerView.Adapter<AdapterKindPets.saveHo
                 public void onClick(View view) {
                     if (callBackList!= null) {;
                         DataManager dataManager = AdapterKindPets.this.dataManager.setKindName(kindPets.get(getAdapterPosition()).getName());
-                        //KindArr(AdapterKindPets.this.dataManager.getKindPet_Title());
-                        AdapterKindPets.this.dataManager.filteredKindArr(questions);
+                       // KindArr(AdapterKindPets.this.dataManager.getKindPet_nameCategory());
+                      //  dataManager.setKindArrOrder(questions);
+                        AdapterKindPets.this.dataManager.setKindArrOrder(questions);
                         callBackList.onClicked();
+
+
+
 
                     }
                 }
@@ -85,7 +89,7 @@ public class AdapterKindPets extends RecyclerView.Adapter<AdapterKindPets.saveHo
     }
 
     public void KindArr(String currentCategoryName){
-       // questions = new ArrayList<>();
+        questions = new ArrayList<>();
         for(int i=0; i<dataManager.getQuestions().size(); i++) {
             if(dataManager.getQuestions().get(i).getCategory().equals(currentCategoryName)){
                 questions.add(dataManager.getQuestions().get(i));

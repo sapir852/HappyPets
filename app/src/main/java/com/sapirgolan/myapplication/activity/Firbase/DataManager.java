@@ -2,11 +2,10 @@ package com.sapirgolan.myapplication.activity.Firbase;
 
 import android.content.Context;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
 import com.sapirgolan.myapplication.activity.CallBack.CallBackQuestion;
+import com.sapirgolan.myapplication.activity.object.Answer;
 import com.sapirgolan.myapplication.activity.object.KindPets;
 import com.sapirgolan.myapplication.activity.object.Question;
 
@@ -21,25 +20,36 @@ public class DataManager {
     private Question question;
     private String questionByCategory;
     private DatabaseReference mDatabase;
-
-
-    private final FirebaseAuth firebaseAuth;
-    private final FirebaseStorage firebaseStorage;
+    private ArrayList<Answer>answers;
     private final FirebaseDatabase firebaseDatabase;
+    private String kindPet_nameCategory;
+    private ArrayList<Question> kindArrOrder;
 
+
+    public void setQuestions(ArrayList<Question> questions) {
+        this.questions = questions;
+    }
+
+    public ArrayList<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(ArrayList<Answer> answers) {
+        this.answers = answers;
+    }
 
 
     public FirebaseDatabase getFirebaseDatabase() {
         return firebaseDatabase;
     }
 
-    public void setKindPet_Title(String kindPet_Title) {
-        this.kindPet_Title = kindPet_Title;
+    public void setKindPet_nameCategory(String kindPet_nameCategory) {
+        this.kindPet_nameCategory = kindPet_nameCategory;
     }
 
     private CallBackQuestion callBackQuestion;
 
-    private String kindPet_Title;
+
     public CallBackQuestion getCallBackQuestion() {
         return callBackQuestion;
     }
@@ -49,8 +59,6 @@ public class DataManager {
         return this;
     }
     private DataManager(Context context) {
-        firebaseStorage = FirebaseStorage.getInstance();
-        firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         this.context = context;
         arrayOfCategory();
@@ -82,14 +90,14 @@ public class DataManager {
     public static DataManager getData() {
         return dataManager;
     }
-    public String getKindPet_Title() {
-        return kindPet_Title;
+    public String getKindPet_nameCategory() {
+        return kindPet_nameCategory;
     } public ArrayList<String> getKindName() {
         return kindName;
     }
 
     public DataManager setKindName(String kindName_name) {
-        this.kindPet_Title = kindPet_Title;
+        this.kindPet_nameCategory = kindPet_nameCategory;
         return this;
     }
     public String getQuestionByCategory() {
@@ -102,7 +110,7 @@ public class DataManager {
     }
 
 
-    public DataManager filteredKindArr(ArrayList<Question> questions) {
+    public DataManager setFilteredKindArr(ArrayList<Question> questions) {
         this.questions = questions;
         return this;
     }
@@ -158,5 +166,13 @@ public class DataManager {
         myRef.child("category").setValue(question.getCategory());
         myRef.child("text").setValue(question.getText());
         //myRef.child("answer").setValue(question.getAnswers());
+    }
+
+    public ArrayList<Question> getKindArrOrder() {
+        return kindArrOrder;
+    }
+
+    public void setKindArrOrder(ArrayList<Question> kindArrOrder) {
+        this.kindArrOrder = kindArrOrder;
     }
 }

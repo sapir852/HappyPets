@@ -1,6 +1,7 @@
 package com.sapirgolan.myapplication.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -22,12 +23,15 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.sapirgolan.myapplication.Adapters.AdapterKindPets;
 import com.sapirgolan.myapplication.Adapters.AdapterQuestion;
 import com.sapirgolan.myapplication.R;
 import com.sapirgolan.myapplication.activity.CallBack.CallBackList;
 import com.sapirgolan.myapplication.activity.Firbase.DataManager;
+import com.sapirgolan.myapplication.activity.activity.ActivityNewAnswer;
+import com.sapirgolan.myapplication.activity.activity.Activity_New_Question;
 import com.sapirgolan.myapplication.activity.activity.Activity_menu;
 import com.sapirgolan.myapplication.activity.object.KindPets;
 import com.sapirgolan.myapplication.activity.object.Question;
@@ -49,7 +53,8 @@ public class Fragment_Question extends Fragment {
     CallBackList callBackQuestion = new CallBackList(){
         @Override
         public void onClicked() {
-            getParentFragmentManager().beginTransaction().replace(R.id.menu_LAY_fragmant,Fragment_Question.class,null).commit();
+
+            getParentFragmentManager().beginTransaction().replace(R.id.answer_LAY_fragmant,FragmentAnswer.class,null).commit();
         }
 
     };
@@ -62,9 +67,8 @@ public class Fragment_Question extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment__question, container, false);
-        //dataManager.setQuestionByCategory("dog");
+        dataManager.setQuestionByCategory("category");
         findViews(view);
-
         return view;
 
     }
@@ -79,7 +83,7 @@ public class Fragment_Question extends Fragment {
 
 
         FirebaseDatabase database=FirebaseDatabase.getInstance("https://happypets-fd8b0-default-rtdb.europe-west1.firebasedatabase.app/");
-
+        //Query myquery=database.getReference("question").orderByChild("category").limitToFirst(equals(dataManager.))
         DatabaseReference myRef=database.getReference("question");
 
         myRef.addValueEventListener(new ValueEventListener() {
@@ -113,10 +117,4 @@ public class Fragment_Question extends Fragment {
         adapterQuestion = new AdapterQuestion(this.appCompatActivity,questionList,callBackQuestion);
         recyclerView.setAdapter(adapterQuestion);
     }
-
-
-    //  }
-
-
-
 }

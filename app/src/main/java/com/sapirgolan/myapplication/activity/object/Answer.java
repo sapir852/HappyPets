@@ -28,11 +28,5 @@ public class Answer {
         this.text = text;
     }
 
-    @Override
-    public String toString() {
-        return "Answer{" +
-                "title='" + title + '\'' +
-                ", text='" + text + '\'' +
-                '}';
-    }
+
 }

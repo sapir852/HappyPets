@@ -31,7 +31,7 @@
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
-            android:text="backe"
+            android:text="back"
 
             android:fontFamily="@font/font_text"
             android:backgroundTint = "#D88787"
@@ -69,8 +69,6 @@
         android:layout_width="match_parent"
         android:layout_height="900dp"
         android:padding="32dp"
-
-
         />
 
 </RelativeLayout>

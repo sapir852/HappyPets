@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.activity.ActivityNewAnswer">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/menu_IMG_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:background="#B0E39FDB"
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_background_log0" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/answer_TXT_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:text="title :"
+            android:textSize="25dp"
+            android:fontFamily="@font/font_text"
+            android:background = "#D88787"
+            >
+
+        </TextView>
+        <TextView
+           android:id="@+id/answer_TXT_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:text="text :"
+            android:textSize="25dp"
+            android:fontFamily="@font/font_text"
+            android:background = "#D88787"
+            android:minLines="2"
+            android:maxLines="20"
+            >
+
+        </TextView>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="150dp"
+        >
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/answer_BTN_backA"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="back"
+            android:fontFamily="@font/font_text"
+            android:backgroundTint = "#D88787"
+            android:textStyle="bold"
+            android:textSize="20dp"
+
+            >
+
+        </com.google.android.material.button.MaterialButton>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/answer_BTN_addA"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="220dp"
+            android:text="Add answer"
+
+            android:fontFamily="@font/font_text"
+            android:backgroundTint = "#D88787"
+            android:textStyle="bold"
+            android:textSize="15dp"
+
+            >
+
+        </com.google.android.material.button.MaterialButton>
+
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:id="@+id/answer_LAY_fragmant"
+        android:layout_marginTop="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="900dp"
+        android:padding="32dp"
+        />
+
+
+</RelativeLayout>
