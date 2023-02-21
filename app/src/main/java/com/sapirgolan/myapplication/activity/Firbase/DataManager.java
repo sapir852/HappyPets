@@ -19,7 +19,6 @@ public class DataManager {
     private ArrayList<Question> questions;
     private Question question;
     private String questionByCategory;
-    private DatabaseReference mDatabase;
     private ArrayList<Answer>answers;
     private final FirebaseDatabase firebaseDatabase;
     private String kindPet_nameCategory;
@@ -70,9 +69,7 @@ public class DataManager {
         }
         return dataManager;
     }
-    public static DataManager getInitData() {
-        return dataManager;
-    }
+
 
 
     public ArrayList<Question> getQuestions() {
@@ -110,14 +107,6 @@ public class DataManager {
     }
 
 
-    public DataManager setFilteredKindArr(ArrayList<Question> questions) {
-        this.questions = questions;
-        return this;
-    }
-
-    public Question getOneQuestion() {
-        return question;
-    }
 
     public DataManager setOneQuestion(Question question) {
         this.question = question;

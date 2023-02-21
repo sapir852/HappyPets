@@ -49,8 +49,8 @@ public class AdapterQuestion extends RecyclerView.Adapter<AdapterQuestion.saveHo
 
         Question question =questions.get(position);
 
-        holder.question_LBL_title.setText(question.getTitle());
-        holder.question_LBL_text.setText(question.getText());
+        holder.question_LBL_title.setText("Title : "+question.getTitle());
+        holder.question_LBL_text.setText("Text : "+question.getText());
 
 
     }
