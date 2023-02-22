@@ -27,11 +27,11 @@
         android:orientation="horizontal"
         >
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/menu_BTN_addA"
+            android:id="@+id/menu_BTN_backQ"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:text="Add Answer"
+            android:layout_marginStart="15dp"
+            android:text="back"
 
             android:fontFamily="@font/font_text"
             android:backgroundTint = "#D88787"
@@ -41,6 +41,8 @@
             >
 
         </com.google.android.material.button.MaterialButton>
+
+
 
 
     <com.google.android.material.button.MaterialButton
@@ -60,21 +62,6 @@
     </com.google.android.material.button.MaterialButton>
 
     </RelativeLayout>
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/menu_BTN_backQ"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:text="back"
-
-        android:fontFamily="@font/font_text"
-        android:backgroundTint = "#D88787"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:layout_marginTop="60dp"
-        >
-
-    </com.google.android.material.button.MaterialButton>
 
 
 

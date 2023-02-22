@@ -28,13 +28,10 @@ import java.util.UUID;
 
 public class Activity_New_Question extends AppCompatActivity {
     private final DataManager dataManager = DataManager.getData();
-    private FirebaseAuth mAuth;
     private MaterialButton questionNew_BTN_finish,questionNew_BTN_Back;
     private EditText questionNew_EDXT_Titel,questionNew_EDXT_Text;
     private AutoCompleteTextView questionNew_AutoTextViewCat;
     private String choseKindPet;
-    private DatabaseReference mDatabase;
-
     private ArrayAdapter<String> adapterKindPets;
 
 
@@ -43,9 +40,7 @@ public class Activity_New_Question extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_question);
 
-        mAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = mAuth.getCurrentUser();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+
 
         findView();
         initViews();
@@ -83,9 +78,6 @@ public class Activity_New_Question extends AppCompatActivity {
                 dataManager.addNewQuestion(tempQuestion);
                 dataManager.getQuestions().add(tempQuestion);
                 dataManager.getCallBackQuestion().question();
-                for (int i = 0; i <dataManager.getQuestions().size() ; i++) {
-                    Log.d("roman" + i, dataManager.getQuestions().get(i).toString());
-                }
                 Intent intent = new Intent(Activity_New_Question.this, Activity_menu.class);
 
                 startActivity(intent);

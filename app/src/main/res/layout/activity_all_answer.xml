@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/menu_IMG_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:background="#B0E39FDB"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_background_log0" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal"
+            android:background="#D88787"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/allAn_LBL_titleQuestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/font_text"
+                    android:text="question title"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/allAn_LBL_textQuestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minLines="6"
+                    android:maxLines="20"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/font_text"
+                    android:text="question text"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+            <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="160dp"
+
+            >
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/allAn_BTN_addA"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="Add Answer"
+
+            android:fontFamily="@font/font_text"
+            android:backgroundTint = "#D88787"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginTop="15dp"
+            >
+
+        </com.google.android.material.button.MaterialButton>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/allAn_BTN_Back"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="220dp"
+            android:text="back"
+
+            android:fontFamily="@font/font_text"
+            android:backgroundTint = "#D88787"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginTop="15dp"
+            >
+
+        </com.google.android.material.button.MaterialButton>
+
+
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:id="@+id/allAn_LAY_fragmant"
+        android:layout_marginTop="220dp"
+        android:layout_width="match_parent"
+        android:layout_height="900dp"
+        android:padding="32dp"
+        />
+
+</RelativeLayout>

@@ -34,7 +34,7 @@ import java.util.ArrayList;
 public class Activity_menu extends AppCompatActivity {
     private final DataManager dataManager = DataManager.getData();
     private AppCompatImageView menu_IMG_background;
-    private MaterialButton menu_BTN_addQ, menu_BTN_backQ;
+    private MaterialButton menu_BTN_addQ, menu_BTN_backQ,menu_BTN_addA;
     private Fragment_kind_pets fragment_kind_pets;
     private ArrayList<Question>questions;
 
@@ -88,8 +88,6 @@ public class Activity_menu extends AppCompatActivity {
             }});
 
 
-
-
     }
 
 
@@ -115,6 +113,8 @@ public class Activity_menu extends AppCompatActivity {
 
             }
         }));
+
+
 
     }
 

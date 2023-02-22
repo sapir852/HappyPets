@@ -2,6 +2,7 @@ package com.sapirgolan.myapplication.Fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.sapirgolan.myapplication.Adapters.AdapterAnswer;
 import com.sapirgolan.myapplication.Adapters.AdapterQuestion;
 import com.sapirgolan.myapplication.R;
@@ -61,16 +67,49 @@ public class FragmentAnswer extends Fragment {
     private void findViews(View view) {
         recyclerView = view.findViewById(R.id.answer_LST_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.appCompatActivity));
-        String tit = "ddd";
-        String tex = "ddddddd";
-        Answer an = new Answer();
-        an.setText(tit);
-        an.setTitle(tex);
+//        String tit = "ddd";
+//        String tex = "ddddddd";
+//        Answer an = new Answer();
+//        an.setText(tit);
+//        an.setTitle(tex);
+//
 
-        ArrayList<Answer> answers = new ArrayList<>();
-        answers.add(an);
+        final ArrayList<Answer> answersList = new ArrayList<>();
+        FirebaseDatabase database=FirebaseDatabase.getInstance("https://happypets-fd8b0-default-rtdb.europe-west1.firebasedatabase.app/");
+        DatabaseReference myRef=database.getReference("answer");
 
-        adapterAnswer = new AdapterAnswer(this.appCompatActivity, answers);
+        myRef.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot quesnapshott : snapshot.getChildren()) {
+                    Answer currentAnswer = new Answer();
+                    currentAnswer.setIdQuestion(quesnapshott.getKey());
+                    // String id = quesnapshott.child("idQuestion").getValue(String.class);
+                    String text = quesnapshott.child("text").getValue(String.class);
+                    String title = quesnapshott.child("title").getValue(String.class);
+
+
+                    //currentAnswer.setTitle(id);
+                    currentAnswer.setTitle(title);
+                    currentAnswer.setText(text);
+                    answersList.add(currentAnswer);
+                    Log.d("text", currentAnswer + "");
+
+                }
+                adapterAnswer.notifyDataSetChanged();
+                dataManager.setAnswers(answersList);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+        });
+
+        //adapterAnswer.notifyDataSetChanged();
+        adapterAnswer = new AdapterAnswer(this.appCompatActivity, dataManager.getAnswers());
         recyclerView.setAdapter(adapterAnswer);
     }
 }

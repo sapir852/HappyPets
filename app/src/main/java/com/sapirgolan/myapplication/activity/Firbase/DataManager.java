@@ -19,42 +19,12 @@ public class DataManager {
     private ArrayList<Question> questions;
     private Question question;
     private String questionByCategory;
+    private String answerByCategory;
+
     private ArrayList<Answer> answers;
     private final FirebaseDatabase firebaseDatabase;
-
     private ArrayList<Question> kindArrOrder;
-
-
-    public void setQuestions(ArrayList<Question> questions) {
-        this.questions = questions;
-    }
-
-    public ArrayList<Question> getQuestions() {
-        return questions;
-    }
-
-    public DataManager setOneQuestion(Question question) {
-        this.question = question;
-        return this;
-    }
-    public ArrayList<Answer> getAnswers() {
-        return answers;
-    }
-
-    public void setAnswers(ArrayList<Answer> answers) {
-        this.answers = answers;
-    }
-
-    private CallBackQuestion callBackQuestion;
-
-    public CallBackQuestion getCallBackQuestion() {
-        return callBackQuestion;
-    }
-
-    public DataManager setCallBackQuestion(CallBackQuestion callBackQuestion) {
-        this.callBackQuestion = callBackQuestion;
-        return this;
-    }
+    private ArrayList<Answer> answerArrOrder;
 
     private DataManager(Context context) {
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -62,36 +32,61 @@ public class DataManager {
         arrayOfCategory();
     }
 
+    public String getAnswerByCategory() {
+        return answerByCategory;
+    }
+    public void setAnswerByCategory(String answerByCategory) {
+        this.answerByCategory = answerByCategory;
+    }
+    public ArrayList<Answer> getAnswerArrOrder() {
+        return answerArrOrder;
+    }
+    public void setAnswerArrOrder(ArrayList<Answer> answerArrOrder) {
+        this.answerArrOrder = answerArrOrder;
+    }
+    public Question getOneQuestin() {
+        return question;
+    }
+    public void setQuestions(ArrayList<Question> questions) {
+        this.questions = questions;
+    }
+    public ArrayList<Question> getQuestions() {
+        return questions;
+    }
+    public DataManager setOneQuestion(Question question) {
+        this.question = question;
+        return this;
+    }
+    private CallBackQuestion callBackQuestion;
+    public CallBackQuestion getCallBackQuestion() {
+        return callBackQuestion;
+    }
+    public DataManager setCallBackQuestion(CallBackQuestion callBackQuestion) {
+        this.callBackQuestion = callBackQuestion;
+        return this;
+    }
     public static DataManager initData(Context context) {
         if (dataManager == null) {
             dataManager = new DataManager(context);
         }
         return dataManager;
     }
-
-
     public ArrayList<KindPets> getKindPets() {
         return kindPets;
     }
-
     public DataManager setQuestion(ArrayList<Question> questions) {
         this.questions = questions;
         return this;
     }
-
     public static DataManager getData() {
         return dataManager;
     }
-
     public ArrayList<String> getKindName() {
         return kindName;
     }
-
-
     public String getQuestionByCategory() {
         return questionByCategory;
     }
-
     public DataManager setQuestionByCategory(String questionByCategory) {
         this.questionByCategory = questionByCategory;
         return this;
@@ -134,7 +129,7 @@ public class DataManager {
         myRef.child("title").setValue(question.getTitle());
         myRef.child("category").setValue(question.getCategory());
         myRef.child("text").setValue(question.getText());
-        //myRef.child("answer").setValue(question.getAnswers());
+
     }
 
     public ArrayList<Question> getKindArrOrder() {
@@ -144,4 +139,22 @@ public class DataManager {
     public void setKindArrOrder(ArrayList<Question> kindArrOrder) {
         this.kindArrOrder = kindArrOrder;
     }
+    public ArrayList<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(ArrayList<Answer> answers) {
+        this.answers = answers;
+    }
+
+    public void addNewAnswer(Answer answer) {
+
+        DatabaseReference myRef = firebaseDatabase.getReference("answer").child(answer.getIdQuestion());
+
+        //myRef.child("idQuestion").setValue(answer.getIdQuestion());
+        myRef.child("title").setValue(answer.getTitle());
+        myRef.child("text").setValue(answer.getText());
+
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.sapirgolan.myapplication.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +25,9 @@ import com.sapirgolan.myapplication.Adapters.AdapterQuestion;
 import com.sapirgolan.myapplication.R;
 import com.sapirgolan.myapplication.activity.CallBack.CallBackList;
 import com.sapirgolan.myapplication.activity.Firbase.DataManager;
+import com.sapirgolan.myapplication.activity.activity.ActivityNewAnswer;
+import com.sapirgolan.myapplication.activity.activity.Activity_New_Question;
+import com.sapirgolan.myapplication.activity.activity.Activity_menu;
 import com.sapirgolan.myapplication.activity.object.Question;
 
 import java.util.ArrayList;
@@ -34,6 +39,7 @@ public class Fragment_Question extends Fragment {
     private AppCompatActivity appCompatActivity;
     private RecyclerView recyclerView;
     private AdapterQuestion adapterQuestion;
+    private MaterialButton question_BTN_addA;
     //String dataValue = getIntent().getStringExtra("data_key");
 
 
@@ -44,7 +50,7 @@ public class Fragment_Question extends Fragment {
 //          //  intent.putExtra("data_key", dataValue);
 //            startActivity(intent);
 
-            getParentFragmentManager().beginTransaction().replace(R.id.menu_LAY_fragmant, FragmentAnswer.class, null).commit();
+            getParentFragmentManager().beginTransaction().replace(R.id.allAn_LAY_fragmant, FragmentAnswer.class, null).commit();
         }
 
     };
@@ -59,13 +65,14 @@ public class Fragment_Question extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment__question, container, false);
-        dataManager.setQuestionByCategory("category");
+
         findViews(view);
         return view;
 
     }
 
     private void findViews(View view) {
+
         recyclerView = view.findViewById(R.id.question_LST_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.appCompatActivity));
 
