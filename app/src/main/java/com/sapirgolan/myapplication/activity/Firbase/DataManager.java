@@ -29,6 +29,15 @@ public class DataManager {
         this.questions = questions;
     }
 
+    public ArrayList<Question> getQuestions() {
+        return questions;
+    }
+
+    public DataManager setOneQuestion(Question question) {
+        this.question = question;
+        return this;
+    }
+
     public ArrayList<Answer> getAnswers() {
         return answers;
     }
@@ -72,10 +81,6 @@ public class DataManager {
 
 
 
-    public ArrayList<Question> getQuestions() {
-
-        return questions;
-    }
     public ArrayList<KindPets> getKindPets() {
         return kindPets;
     }
@@ -108,10 +113,6 @@ public class DataManager {
 
 
 
-    public DataManager setOneQuestion(Question question) {
-        this.question = question;
-        return this;
-    }
 
     private void arrayOfCategory() {
         questions = new ArrayList<Question>();

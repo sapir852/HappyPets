@@ -14,12 +14,9 @@ import com.sapirgolan.myapplication.activity.FullScreen;
 
 public class Activity_login_Main extends AppCompatActivity {
 
-
-
     AppCompatImageView logMain_IMG_background;
     MaterialButton logMain_BTN_Login;
     MaterialButton logMain_BTN_signUp;
-
 
 
     @Override

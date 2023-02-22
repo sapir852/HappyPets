@@ -1,13 +1,10 @@
 package com.sapirgolan.myapplication.Fragment;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,25 +14,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.google.android.material.appbar.MaterialToolbar;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.sapirgolan.myapplication.Adapters.AdapterKindPets;
 import com.sapirgolan.myapplication.Adapters.AdapterQuestion;
 import com.sapirgolan.myapplication.R;
 import com.sapirgolan.myapplication.activity.CallBack.CallBackList;
 import com.sapirgolan.myapplication.activity.Firbase.DataManager;
-import com.sapirgolan.myapplication.activity.activity.ActivityNewAnswer;
-import com.sapirgolan.myapplication.activity.activity.Activity_New_Question;
-import com.sapirgolan.myapplication.activity.activity.Activity_menu;
-import com.sapirgolan.myapplication.activity.object.KindPets;
 import com.sapirgolan.myapplication.activity.object.Question;
-import com.sapirgolan.myapplication.placeholder.PlaceholderContent;
 
 import java.util.ArrayList;
 
@@ -46,6 +34,7 @@ public class Fragment_Question extends Fragment {
     private AppCompatActivity appCompatActivity;
     private RecyclerView recyclerView;
     private AdapterQuestion adapterQuestion;
+    //String dataValue = getIntent().getStringExtra("data_key");
 
 
 
@@ -53,8 +42,11 @@ public class Fragment_Question extends Fragment {
     CallBackList callBackQuestion = new CallBackList(){
         @Override
         public void onClicked() {
+//            Intent intent = new Intent(getActivity(), ActivityNewAnswer.class);
+//          //  intent.putExtra("data_key", dataValue);
+//            startActivity(intent);
 
-            getParentFragmentManager().beginTransaction().replace(R.id.answer_LAY_fragmant,FragmentAnswer.class,null).commit();
+            getParentFragmentManager().beginTransaction().replace(R.id.menu_LAY_fragmant,FragmentAnswer.class,null).commit();
         }
 
     };
@@ -75,46 +67,12 @@ public class Fragment_Question extends Fragment {
     private void findViews(View view) {
         recyclerView = view.findViewById(R.id.question_LST_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.appCompatActivity));
-        final ArrayList<Question> questionList = new ArrayList<>();
 
 
-        adapterQuestion = new AdapterQuestion(this.appCompatActivity,dataManager.getQuestions(),callBackQuestion);
+        adapterQuestion = new AdapterQuestion(this.appCompatActivity,dataManager.getKindArrOrder(),callBackQuestion);
         recyclerView.setAdapter(adapterQuestion);
 
-
-        FirebaseDatabase database=FirebaseDatabase.getInstance("https://happypets-fd8b0-default-rtdb.europe-west1.firebasedatabase.app/");
-        //Query myquery=database.getReference("question").orderByChild("category").limitToFirst(equals(dataManager.))
-        DatabaseReference myRef=database.getReference("question");
-
-        myRef.addValueEventListener(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                for (DataSnapshot quesnapshot : snapshot.getChildren()) {
-
-                    Question currentQuestion = new Question();
-
-                    currentQuestion.setIdQ(quesnapshot.getKey());
-                    String category = quesnapshot.child("category").getValue(String.class);
-                    String title = quesnapshot.child("title").getValue(String.class);
-                    String text = quesnapshot.child("text").getValue(String.class);
-                    currentQuestion.setCategory(category);
-                    currentQuestion.setTitle(title);
-                    currentQuestion.setText(text);
-                    questionList.add(currentQuestion);
-                    Log.d("text", currentQuestion + "");
-                }
-                adapterQuestion.notifyDataSetChanged();
-                dataManager.setQuestion(questionList);
-                // Toast.makeText(appCompatActivity, " "+questionList.size(), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(appCompatActivity, "error reading from firebase ", Toast.LENGTH_SHORT).show();
-            }});
-        adapterQuestion = new AdapterQuestion(this.appCompatActivity,questionList,callBackQuestion);
-        recyclerView.setAdapter(adapterQuestion);
+        //        adapterQuestion = new AdapterQuestion(this.appCompatActivity,questionList,callBackQuestion);
+//        recyclerView.setAdapter(adapterQuestion);
     }
 }

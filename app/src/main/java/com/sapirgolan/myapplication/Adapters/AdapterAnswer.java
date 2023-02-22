@@ -39,18 +39,18 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.saveHolder
 
     @Override
     public AdapterAnswer.saveHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_kind_pets, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_answer, parent, false);
         AdapterAnswer.saveHolder saveHolder =new AdapterAnswer.saveHolder(view);
         return saveHolder;
     }
 
 
     @Override
-    public void onBindViewHolder(@NonNull AdapterAnswer.saveHolder holder, int position) {
+    public void onBindViewHolder( AdapterAnswer.saveHolder holder, int position) {
         Answer answer =answers.get(position);
 
-        holder.answer_LBL_title.setText(answer.getTitle());
-        holder.answer_LBL_title.setText(answer.getText());
+        holder.answer_LBL_title.setText("Title "+answer.getTitle());
+        holder.answer_LBL_text.setText("Text "+ answer.getText());
 
     }
 

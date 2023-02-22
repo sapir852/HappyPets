@@ -71,10 +71,12 @@ public class AdapterKindPets extends RecyclerView.Adapter<AdapterKindPets.saveHo
                 @Override
                 public void onClick(View view) {
                     if (callBackList!= null) {;
-                        DataManager dataManager = AdapterKindPets.this.dataManager.setKindName(kindPets.get(getAdapterPosition()).getName());
-                       // KindArr(AdapterKindPets.this.dataManager.getKindPet_nameCategory());
-                      //  dataManager.setKindArrOrder(questions);
-                        AdapterKindPets.this.dataManager.setKindArrOrder(questions);
+                     //   DataManager dataManager = AdapterKindPets.this.dataManager.setKindName(kindPets.get(getBindingAdapterPosition   ()).getName());
+                        dataManager.setQuestionByCategory(kindPets.get(getBindingAdapterPosition()).getName());
+
+                        KindArr(dataManager.getQuestionByCategory());
+                        dataManager.setKindArrOrder(questions);
+                     //   AdapterKindPets.this.dataManager.setKindArrOrder(questions);
                         callBackList.onClicked();
 
 
