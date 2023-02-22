@@ -7,7 +7,7 @@ public class Question {
     private String idQ;
     private String title="";
     private String  text="";
-   // private String imagePet;
+    // private String imagePet;
     private ArrayList<Answer> answers;
 
 
@@ -18,7 +18,7 @@ public class Question {
         this.idQ=idQ;
         this.title = title;
         this.text = text;
-      //  this.imagePet = imagePet;
+        //  this.imagePet = imagePet;
         this.answers = new ArrayList<>();
     }
 

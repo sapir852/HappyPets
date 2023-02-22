@@ -30,8 +30,8 @@ public class Activity_New_Question extends AppCompatActivity {
     private final DataManager dataManager = DataManager.getData();
     private FirebaseAuth mAuth;
     private MaterialButton questionNew_BTN_finish,questionNew_BTN_Back;
-   private EditText questionNew_EDXT_Titel,questionNew_EDXT_Text;
-   private AutoCompleteTextView questionNew_AutoTextViewCat;
+    private EditText questionNew_EDXT_Titel,questionNew_EDXT_Text;
+    private AutoCompleteTextView questionNew_AutoTextViewCat;
     private String choseKindPet;
     private DatabaseReference mDatabase;
 
@@ -105,7 +105,7 @@ public class Activity_New_Question extends AppCompatActivity {
         questionNew_EDXT_Titel=findViewById(R.id.questionNew_EDXT_Titel );
         questionNew_EDXT_Text = findViewById(R.id.questionNew_EDXT_Text );
         questionNew_AutoTextViewCat = findViewById(R.id.questionNew_AutoTextViewCat );
-         String[] options ={"cat","dog","fish","parrot","rabbit","hamster"};
+        String[] options ={"cat","dog","fish","parrot","rabbit","hamster"};
 
         adapterKindPets = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,options);
 

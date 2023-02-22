@@ -24,7 +24,7 @@ public class Activity_splash extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         animation_view = findViewById(R.id.animation_view);
 
-        
+
         startAnimation(animation_view);
 
 

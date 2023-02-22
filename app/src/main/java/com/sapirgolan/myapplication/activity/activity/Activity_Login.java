@@ -25,7 +25,7 @@ public class Activity_Login extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     AppCompatImageView login_IMG_background;
-    private EditText login_ETXT_password,login_ETXT_email;
+    private EditText login_ETXT_password, login_ETXT_email;
     private MaterialButton login_BTN_Login;
     private MaterialButton login_BTN_back;
 
@@ -46,7 +46,7 @@ public class Activity_Login extends AppCompatActivity {
 //                .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPQtbWlOYDJoXbQIozPZZCDpm7PhEMuu9Osw&usqp=CAU")
 //                .into(login_IMG_background);
 
-        
+
     }
 
     private void initViews() {
@@ -68,40 +68,41 @@ public class Activity_Login extends AppCompatActivity {
     }
 
     private void findView() {
-        login_IMG_background= findViewById(R.id.login_IMG_background );
-        login_ETXT_password= findViewById(R.id.login_ETXT_password);
+        login_IMG_background = findViewById(R.id.login_IMG_background);
+        login_ETXT_password = findViewById(R.id.login_ETXT_password);
         login_ETXT_email = findViewById(R.id.login_ETXT_email);
         login_BTN_Login = findViewById(R.id.login_BTN_Login);
         login_BTN_back = findViewById(R.id.login_BTN_back);
     }
+
     private void signIn() {
         String email = login_ETXT_email.getText().toString();
         String password = login_ETXT_password.getText().toString();
 
-        if(email.isEmpty()||password.isEmpty()){
-            Toast.makeText(Activity_Login.this,"Please full all the fields ",Toast.LENGTH_LONG).show();
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(Activity_Login.this, "Please full all the fields ", Toast.LENGTH_LONG).show();
             return;
         }
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             login_ETXT_email.setError("Please provide valid email!");
             login_ETXT_email.requestFocus();
             return;
         }
 
-        if(password.length()<6){
+        if (password.length() < 6) {
             login_ETXT_password.setError("Minmum password lenght should be 6 characters");
             login_ETXT_password.requestFocus();
             return;
         }
 
-        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    Toast.makeText(Activity_Login.this,"logIn",Toast.LENGTH_LONG).show();
+                if (task.isSuccessful()) {
+                    Toast.makeText(Activity_Login.this, "logIn", Toast.LENGTH_LONG).show();
                     openMenu();
-                }else{
-                    Toast.makeText(Activity_Login.this,"One or more of the fields you entered are incorrect",Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(Activity_Login.this, "One or more of the fields you entered are incorrect", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -115,6 +116,7 @@ public class Activity_Login extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
     private void signOut() {
         Intent intent = new Intent(Activity_Login.this, Activity_login_Main.class);
         startActivity(intent);

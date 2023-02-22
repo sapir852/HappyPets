@@ -29,10 +29,11 @@ public class FragmentAnswer extends Fragment {
     private RecyclerView recyclerView;
     private AdapterAnswer adapterAnswer;
 
-    public FragmentAnswer() {}
+    public FragmentAnswer() {
+    }
 
-    public Fragment setActivity(AppCompatActivity appCompatActivity){
-        this.appCompatActivity=appCompatActivity;
+    public Fragment setActivity(AppCompatActivity appCompatActivity) {
+        this.appCompatActivity = appCompatActivity;
         return this;
     }
 
@@ -60,16 +61,16 @@ public class FragmentAnswer extends Fragment {
     private void findViews(View view) {
         recyclerView = view.findViewById(R.id.answer_LST_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.appCompatActivity));
-        String tit ="ddd";
-        String tex="ddddddd";
-        Answer an=new Answer();
+        String tit = "ddd";
+        String tex = "ddddddd";
+        Answer an = new Answer();
         an.setText(tit);
         an.setTitle(tex);
 
-        ArrayList<Answer>answers=new ArrayList<>();
+        ArrayList<Answer> answers = new ArrayList<>();
         answers.add(an);
 
-        adapterAnswer = new AdapterAnswer(this.appCompatActivity,answers);
+        adapterAnswer = new AdapterAnswer(this.appCompatActivity, answers);
         recyclerView.setAdapter(adapterAnswer);
     }
 }

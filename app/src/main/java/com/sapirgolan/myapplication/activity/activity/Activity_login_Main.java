@@ -35,7 +35,6 @@ public class Activity_login_Main extends AppCompatActivity {
                 .into(logMain_IMG_background);
 
 
-
     }
 
     private void initViews() {

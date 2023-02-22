@@ -58,7 +58,7 @@ public class Fragment_kind_pets extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_kind_pets, container, false);
-          dataManager.setCallBackQuestion(callBackQuestion);
+        dataManager.setCallBackQuestion(callBackQuestion);
         findViews(view);
         return view;
 
@@ -66,7 +66,7 @@ public class Fragment_kind_pets extends Fragment {
     private void findViews(View view) {
         recyclerView = view.findViewById(R.id.kindPets_LST_recyclerView);
 
-     //   ArrayList<KindPets> kind = dataManager.getKindPett();
+        //   ArrayList<KindPets> kind = dataManager.getKindPett();
         adapterKindPets = new AdapterKindPets(this.appCompatActivity, dataManager.getKindPets(),callBackKind);
         recyclerView.setLayoutManager(new GridLayoutManager(this.appCompatActivity,2));
         recyclerView.setAdapter(adapterKindPets);

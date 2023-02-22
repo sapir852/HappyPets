@@ -47,10 +47,10 @@ public class Activity_SingUp extends AppCompatActivity {
 
     private void findView() {
         singup_IMG_background= findViewById(R.id.singup_IMG_background);
-         singup_ETXT_nameUser= findViewById(R.id.singup_ETXT_nameUser);
-         singup_ETXT_password= findViewById(R.id.singup_ETXT_password);
-         singup_ETXT_email = findViewById(R.id.singup_ETXT_email);
-         singup_BTN_Login = findViewById(R.id.singup_BTN_Login);
+        singup_ETXT_nameUser= findViewById(R.id.singup_ETXT_nameUser);
+        singup_ETXT_password= findViewById(R.id.singup_ETXT_password);
+        singup_ETXT_email = findViewById(R.id.singup_ETXT_email);
+        singup_BTN_Login = findViewById(R.id.singup_BTN_Login);
         singup_BTN_back= findViewById(R.id.singup_BTN_back);
 
     }
@@ -146,7 +146,7 @@ public class Activity_SingUp extends AppCompatActivity {
         finish();
     }
 
-        @Override
+    @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) {

@@ -37,23 +37,23 @@ public class Fragment_Question extends Fragment {
     //String dataValue = getIntent().getStringExtra("data_key");
 
 
-
-
-    CallBackList callBackQuestion = new CallBackList(){
+    CallBackList callBackQuestion = new CallBackList() {
         @Override
         public void onClicked() {
 //            Intent intent = new Intent(getActivity(), ActivityNewAnswer.class);
 //          //  intent.putExtra("data_key", dataValue);
 //            startActivity(intent);
 
-            getParentFragmentManager().beginTransaction().replace(R.id.menu_LAY_fragmant,FragmentAnswer.class,null).commit();
+            getParentFragmentManager().beginTransaction().replace(R.id.menu_LAY_fragmant, FragmentAnswer.class, null).commit();
         }
 
     };
-    public Fragment setActivity(AppCompatActivity appCompatActivity){
-        this.appCompatActivity=appCompatActivity;
+
+    public Fragment setActivity(AppCompatActivity appCompatActivity) {
+        this.appCompatActivity = appCompatActivity;
         return this;
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -64,12 +64,13 @@ public class Fragment_Question extends Fragment {
         return view;
 
     }
+
     private void findViews(View view) {
         recyclerView = view.findViewById(R.id.question_LST_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.appCompatActivity));
 
 
-        adapterQuestion = new AdapterQuestion(this.appCompatActivity,dataManager.getKindArrOrder(),callBackQuestion);
+        adapterQuestion = new AdapterQuestion(this.appCompatActivity, dataManager.getKindArrOrder(), callBackQuestion);
         recyclerView.setAdapter(adapterQuestion);
 
         //        adapterQuestion = new AdapterQuestion(this.appCompatActivity,questionList,callBackQuestion);

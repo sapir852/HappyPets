@@ -47,7 +47,7 @@ public class Activity_menu extends AppCompatActivity {
         findView();
         initViews();
 
-       // fragment_kind_pets = new Fragment_kind_pets();
+        // fragment_kind_pets = new Fragment_kind_pets();
         fragment_kind_pets = (Fragment_kind_pets) new Fragment_kind_pets().setActivity(this);
 
         getSupportFragmentManager().beginTransaction().add(R.id.menu_LAY_fragmant, fragment_kind_pets).commit();
@@ -93,7 +93,7 @@ public class Activity_menu extends AppCompatActivity {
     }
 
 
-        private void initViews() {
+    private void initViews() {
 
         menu_BTN_addQ.setOnClickListener((new View.OnClickListener() {
             @Override
