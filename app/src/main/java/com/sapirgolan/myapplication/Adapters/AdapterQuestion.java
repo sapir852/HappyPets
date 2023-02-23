@@ -95,7 +95,7 @@ public class AdapterQuestion extends RecyclerView.Adapter<AdapterQuestion.saveHo
 //
                     dataManager.setAnswerByCategory(questions.get(getBindingAdapterPosition()).getIdQ());
 
-                    // KindArr(dataManager.getAnswerByCategory());
+                     KindArr(dataManager.getAnswerByCategory());
                     dataManager.setAnswerArrOrder(answers);
 
                     view.getContext().startActivity(new Intent(view.getContext(), ActivityAllAnswer.class));

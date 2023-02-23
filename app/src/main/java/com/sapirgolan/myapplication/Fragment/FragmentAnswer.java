@@ -74,39 +74,6 @@ public class FragmentAnswer extends Fragment {
 //        an.setTitle(tex);
 //
 
-        final ArrayList<Answer> answersList = new ArrayList<>();
-        FirebaseDatabase database=FirebaseDatabase.getInstance("https://happypets-fd8b0-default-rtdb.europe-west1.firebasedatabase.app/");
-        DatabaseReference myRef=database.getReference("answer");
-
-        myRef.addValueEventListener(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot quesnapshott : snapshot.getChildren()) {
-                    Answer currentAnswer = new Answer();
-                    currentAnswer.setIdQuestion(quesnapshott.getKey());
-                    // String id = quesnapshott.child("idQuestion").getValue(String.class);
-                    String text = quesnapshott.child("text").getValue(String.class);
-                    String title = quesnapshott.child("title").getValue(String.class);
-
-
-                    //currentAnswer.setTitle(id);
-                    currentAnswer.setTitle(title);
-                    currentAnswer.setText(text);
-                    answersList.add(currentAnswer);
-                    Log.d("text", currentAnswer + "");
-
-                }
-                adapterAnswer.notifyDataSetChanged();
-                dataManager.setAnswers(answersList);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-
-        });
 
         //adapterAnswer.notifyDataSetChanged();
         adapterAnswer = new AdapterAnswer(this.appCompatActivity, dataManager.getAnswers());

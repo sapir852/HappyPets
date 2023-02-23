@@ -26,6 +26,7 @@ import com.sapirgolan.myapplication.R;
 import com.sapirgolan.myapplication.activity.CallBack.CallBackList;
 import com.sapirgolan.myapplication.activity.Firbase.DataManager;
 import com.sapirgolan.myapplication.activity.FullScreen;
+import com.sapirgolan.myapplication.activity.object.Answer;
 import com.sapirgolan.myapplication.activity.object.Question;
 
 import java.net.HttpCookie;
@@ -55,7 +56,12 @@ public class Activity_menu extends AppCompatActivity {
                 .with(Activity_menu.this)
                 .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPQtbWlOYDJoXbQIozPZZCDpm7PhEMuu9Osw&usqp=CAU")
                 .into(menu_IMG_background);
+        readFromFirebase();
 
+
+
+    }
+    private void readFromFirebase() {
         final ArrayList<Question> questionList = new ArrayList<>();
 
         FirebaseDatabase database=FirebaseDatabase.getInstance("https://happypets-fd8b0-default-rtdb.europe-west1.firebasedatabase.app/");
@@ -87,9 +93,43 @@ public class Activity_menu extends AppCompatActivity {
                 Toast.makeText(Activity_menu.this, "error reading from firebase ", Toast.LENGTH_SHORT).show();
             }});
 
+        final ArrayList<Answer> answersList = new ArrayList<>();
+        // FirebaseDatabase database=FirebaseDatabase.getInstance("https://happypets-fd8b0-default-rtdb.europe-west1.firebasedatabase.app/");
+        // DatabaseReference
+        myRef=database.getReference("answer");
+
+        myRef.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot quesnapshott : snapshot.getChildren()) {
+                    Answer currentAnswer = new Answer();
+                    currentAnswer.setIdQuestion(quesnapshott.getKey());
+                    // String id = quesnapshott.child("idQuestion").getValue(String.class);
+                    String text = quesnapshott.child("text").getValue(String.class);
+                    String title = quesnapshott.child("title").getValue(String.class);
+
+
+                    //currentAnswer.setTitle(id);
+                    currentAnswer.setTitle(title);
+                    currentAnswer.setText(text);
+                    answersList.add(currentAnswer);
+                    Log.d("text", currentAnswer + "");
+
+                }
+                // adapterAnswer.notifyDataSetChanged();
+                dataManager.setAnswers(answersList);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+        });
+
 
     }
-
 
     private void initViews() {
 
