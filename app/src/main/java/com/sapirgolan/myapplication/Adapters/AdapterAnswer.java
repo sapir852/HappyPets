@@ -1,23 +1,16 @@
 package com.sapirgolan.myapplication.Adapters;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.material.textview.MaterialTextView;
 import com.sapirgolan.myapplication.R;
-import com.sapirgolan.myapplication.activity.CallBack.CallBackList;
-import com.sapirgolan.myapplication.activity.Firbase.DataManager;
+import com.sapirgolan.myapplication.activity.DataBase.DataManager;
 import com.sapirgolan.myapplication.activity.object.Answer;
-import com.sapirgolan.myapplication.activity.object.KindPets;
-import com.sapirgolan.myapplication.activity.object.Question;
 
 import java.util.ArrayList;
 
@@ -49,8 +42,8 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.saveHolder
     public void onBindViewHolder( AdapterAnswer.saveHolder holder, int position) {
         Answer answer =answers.get(position);
 
-        holder.answer_LBL_title.setText("Title "+answer.getTitle());
-        holder.answer_LBL_text.setText("Text "+ answer.getText());
+        holder.answer_LBL_title.setText("Title: "+answer.getTitle());
+        holder.answer_LBL_text.setText("Answer: "+ answer.getText());
 
     }
 

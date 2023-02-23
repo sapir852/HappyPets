@@ -3,8 +3,6 @@ package com.sapirgolan.myapplication.activity.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,22 +12,18 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.button.MaterialButton;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.sapirgolan.myapplication.Adapters.AdapterQuestion;
 import com.sapirgolan.myapplication.Fragment.Fragment_kind_pets;
 import com.sapirgolan.myapplication.R;
-import com.sapirgolan.myapplication.activity.CallBack.CallBackList;
-import com.sapirgolan.myapplication.activity.Firbase.DataManager;
+import com.sapirgolan.myapplication.activity.DataBase.DataManager;
 import com.sapirgolan.myapplication.activity.FullScreen;
 import com.sapirgolan.myapplication.activity.object.Answer;
 import com.sapirgolan.myapplication.activity.object.Question;
 
-import java.net.HttpCookie;
 import java.util.ArrayList;
 
 public class Activity_menu extends AppCompatActivity {
@@ -105,12 +99,12 @@ public class Activity_menu extends AppCompatActivity {
                 for (DataSnapshot quesnapshott : snapshot.getChildren()) {
                     Answer currentAnswer = new Answer();
                     currentAnswer.setIdQuestion(quesnapshott.getKey());
-                    // String id = quesnapshott.child("idQuestion").getValue(String.class);
+                     String id = quesnapshott.child("idQuestion").getValue(String.class);
                     String text = quesnapshott.child("text").getValue(String.class);
                     String title = quesnapshott.child("title").getValue(String.class);
 
 
-                    //currentAnswer.setTitle(id);
+                    currentAnswer.setTitle(id);
                     currentAnswer.setTitle(title);
                     currentAnswer.setText(text);
                     answersList.add(currentAnswer);

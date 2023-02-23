@@ -2,7 +2,7 @@ package com.sapirgolan.myapplication.activity;
 
 import android.app.Application;
 
-import com.sapirgolan.myapplication.activity.Firbase.DataManager;
+import com.sapirgolan.myapplication.activity.DataBase.DataManager;
 
 public class myApp extends Application {
     @Override

@@ -4,17 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
 import com.google.android.material.button.MaterialButton;
 import com.sapirgolan.myapplication.R;
-import com.sapirgolan.myapplication.activity.Firbase.DataManager;
+import com.sapirgolan.myapplication.activity.DataBase.DataManager;
 import com.sapirgolan.myapplication.activity.FullScreen;
 import com.sapirgolan.myapplication.activity.object.Answer;
-import com.sapirgolan.myapplication.activity.object.Question;
 
 import java.util.UUID;
 

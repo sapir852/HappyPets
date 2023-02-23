@@ -1,30 +1,17 @@
 package com.sapirgolan.myapplication.activity.activity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.sapirgolan.myapplication.Fragment.FragmentAnswer;
-import com.sapirgolan.myapplication.Fragment.Fragment_kind_pets;
 import com.sapirgolan.myapplication.R;
-import com.sapirgolan.myapplication.activity.Firbase.DataManager;
-import com.sapirgolan.myapplication.activity.object.Answer;
+import com.sapirgolan.myapplication.activity.DataBase.DataManager;
 import com.sapirgolan.myapplication.activity.object.Question;
-
-import java.util.ArrayList;
 
 public class ActivityAllAnswer extends AppCompatActivity {
     private final DataManager dataManager = DataManager.getData();

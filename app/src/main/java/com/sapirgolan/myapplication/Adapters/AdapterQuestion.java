@@ -2,26 +2,18 @@ package com.sapirgolan.myapplication.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
 import com.sapirgolan.myapplication.R;
 import com.sapirgolan.myapplication.activity.CallBack.CallBackList;
-import com.sapirgolan.myapplication.activity.CallBack.CallBackQuestion;
-import com.sapirgolan.myapplication.activity.Firbase.DataManager;
+import com.sapirgolan.myapplication.activity.DataBase.DataManager;
 import com.sapirgolan.myapplication.activity.activity.ActivityAllAnswer;
-import com.sapirgolan.myapplication.activity.activity.ActivityNewAnswer;
 import com.sapirgolan.myapplication.activity.object.Answer;
-import com.sapirgolan.myapplication.activity.object.KindPets;
 import com.sapirgolan.myapplication.activity.object.Question;
 
 import java.util.ArrayList;
@@ -93,9 +85,9 @@ public class AdapterQuestion extends RecyclerView.Adapter<AdapterQuestion.saveHo
                     dataManager.setOneQuestion(questions.get(getBindingAdapterPosition()));
 //                    Log.d("text",questions.get(getBindingAdapterPosition()) + "");
 //
-                    dataManager.setAnswerByCategory(questions.get(getBindingAdapterPosition()).getIdQ());
+                 //   dataManager.setAnswerByCategory(dataManager.getOneQuestin().getIdQ());
 
-                     KindArr(dataManager.getAnswerByCategory());
+                     KindArr();
                     dataManager.setAnswerArrOrder(answers);
 
                     view.getContext().startActivity(new Intent(view.getContext(), ActivityAllAnswer.class));
@@ -106,15 +98,16 @@ public class AdapterQuestion extends RecyclerView.Adapter<AdapterQuestion.saveHo
 
 
 
+
                 }
             });
 
         }}
 
-    public void KindArr(String answerByCategory){
+    public void KindArr(){
         answers = new ArrayList<>();
         for(int i=0; i<dataManager.getAnswers().size(); i++) {
-            if(dataManager.getAnswers().get(i).getIdQuestion().equals(answerByCategory)){
+            if(dataManager.getAnswers().get(i).getIdQuestion().equals(dataManager.getOneQuestin().getIdQ())){
                 answers.add(dataManager.getAnswers().get(i));
 
             }

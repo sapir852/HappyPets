@@ -2,7 +2,6 @@ package com.sapirgolan.myapplication.Fragment;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,19 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.sapirgolan.myapplication.Adapters.AdapterAnswer;
-import com.sapirgolan.myapplication.Adapters.AdapterQuestion;
 import com.sapirgolan.myapplication.R;
-import com.sapirgolan.myapplication.activity.Firbase.DataManager;
-import com.sapirgolan.myapplication.activity.object.Answer;
-import com.sapirgolan.myapplication.activity.object.Question;
-
-import java.util.ArrayList;
+import com.sapirgolan.myapplication.activity.DataBase.DataManager;
 
 
 public class FragmentAnswer extends Fragment {

@@ -1,4 +1,4 @@
-package com.sapirgolan.myapplication.activity.Firbase;
+package com.sapirgolan.myapplication.activity.DataBase;
 
 import android.content.Context;
 
@@ -151,7 +151,7 @@ public class DataManager {
 
         DatabaseReference myRef = firebaseDatabase.getReference("answer").child(answer.getIdQuestion());
 
-        //myRef.child("idQuestion").setValue(answer.getIdQuestion());
+        myRef.child("idQuestion").setValue(getOneQuestin().getIdQ());
         myRef.child("title").setValue(answer.getTitle());
         myRef.child("text").setValue(answer.getText());
 

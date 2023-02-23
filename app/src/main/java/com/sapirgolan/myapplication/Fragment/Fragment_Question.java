@@ -1,36 +1,21 @@
 package com.sapirgolan.myapplication.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.sapirgolan.myapplication.Adapters.AdapterQuestion;
 import com.sapirgolan.myapplication.R;
 import com.sapirgolan.myapplication.activity.CallBack.CallBackList;
-import com.sapirgolan.myapplication.activity.Firbase.DataManager;
-import com.sapirgolan.myapplication.activity.activity.ActivityNewAnswer;
-import com.sapirgolan.myapplication.activity.activity.Activity_New_Question;
-import com.sapirgolan.myapplication.activity.activity.Activity_menu;
-import com.sapirgolan.myapplication.activity.object.Question;
-
-import java.util.ArrayList;
+import com.sapirgolan.myapplication.activity.DataBase.DataManager;
 
 
 public class Fragment_Question extends Fragment {

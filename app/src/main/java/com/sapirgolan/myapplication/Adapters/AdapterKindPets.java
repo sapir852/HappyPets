@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.textview.MaterialTextView;
 import com.sapirgolan.myapplication.R;
 import com.sapirgolan.myapplication.activity.CallBack.CallBackList;
-import com.sapirgolan.myapplication.activity.Firbase.DataManager;
+import com.sapirgolan.myapplication.activity.DataBase.DataManager;
 import com.sapirgolan.myapplication.activity.object.KindPets;
 import com.sapirgolan.myapplication.activity.object.Question;
 
